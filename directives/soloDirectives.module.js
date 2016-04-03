@@ -3,6 +3,6 @@ var angular = require('angular');
 
 var ngModule = angular.module('solo.directives', []);
 
-require('./sample-d/sampleD.directive.js')(ngModule);
+require('./file-uploader/file-uploader.directive.js')(ngModule);
 
 module.exports = ngModule;

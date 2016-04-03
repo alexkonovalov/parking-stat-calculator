@@ -1,7 +1,11 @@
 ﻿'use strict';
 
 function SampleController($scope) {
+
+
     $scope.sampleInfo = "foo";
+
+    $scope.uploadOutput = "";
 }
 
 
