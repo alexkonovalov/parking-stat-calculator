@@ -1,0 +1,72 @@
+﻿/*@import '../../master';*/
+@import '../../styles/_mixins';
+@import '../../styles/components/checkbox';
+@import '../../styles/components/fieldsContainer';
+@import '../../styles/components/buttons';
+
+
+.restoreRequestButtonContainer {
+    margin: 101px 0 50px 0;
+}
+
+
+.fieldsContainer--restore{
+    margin:38px auto 0 auto;
+}
+
+.formDescription--restore{
+    max-width: 233px;
+}
+
+.loginButton{
+    margin: 28px auto 0 auto;
+    max-width:216px;
+    width:100%;
+}
+ 
+
+.loginSnDescription{
+    margin:34px auto 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 9pt;
+    color: #828285;
+    text-align: center;
+}
+
+
+.formActions{
+    &__leftAction{
+        float: left;
+
+        &__rememberCheckbox{
+            float: left;
+            margin: 3px 0 0 0;
+        }
+
+        &__rememberCheckboxDescription{
+
+            padding:0 0 0 11px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 8pt;
+            color: #828285;
+        }
+
+
+    }
+    &__rightAction{
+        float: right;
+
+        &__passwordRestoreLink {
+            color: #00bf67; 
+            text-transform: uppercase;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 10pt; 
+            font-weight: 600; 
+            text-decoration: none;
+        }
+    }
+
+    &__clearFix{
+        clear: left;
+    }
+}

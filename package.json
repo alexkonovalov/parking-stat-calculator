@@ -1,0 +1,38 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "name": "solo",
+  "devDependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "gulp": "3.5.2",
+    "gulp-clean": "^0.3.1",
+    "gulp-copy": "0.0.2",
+    "gulp-ignore": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "ng-annotate-loader": "^0.1.0",
+    "ng-annotate-webpack-plugin": "^0.1.2",
+    "node-sass": "^3.4.2",
+    "raw-loader": "^0.5.1",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.14",
+    "webpack-stream": "^3.1.0",
+    "yargs": "^4.3.2"
+  },
+  "dependencies": {},
+    "scripts": {
+        "build": "gulp build --destination=../for_buils/",
+        "clean": "gulp cleandir",
+        "copy": "gulp copydir",
+        "webpack": "webpack"
+    },
+  "main": "gulpfile.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
