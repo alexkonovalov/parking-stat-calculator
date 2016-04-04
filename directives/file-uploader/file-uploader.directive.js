@@ -6,7 +6,8 @@ function fileUploader($window) {
         restrict: 'A',
         replace: false,
         scope: {
-            output: '=fileUploaderOutput'
+            output: '=fileUploaderOutput',
+            onLoad: '&fileUploaderOnLoad'
         },
         template: require('./file-uploader.template.html'),
         link:  function (scope, element) {
@@ -36,6 +37,10 @@ function fileUploader($window) {
 
                     picReader.addEventListener("load", function (event) {
                         var textFile = event.target;
+
+                        scope.onLoad({
+                            text: textFile.result
+                        });
 
                         scope.$apply(function(){
                             scope.output.push(textFile.result);

@@ -1,9 +1,16 @@
 ﻿'use strict';
 
-function SampleController($scope) {
+function SampleController($scope, dateParserService, intervalStatService) {
 
 
-    $scope.sampleInfo = "foo";
+    $scope.onFileUpload = function(text){
+
+        var intervals =  dateParserService.parseIntervals(text);
+        $scope.sampleInfo = intervalStatService.getStatics(intervals);
+
+    };
+
+    $scope.sampleInfo = [];
 
     $scope.uploadOutput = "";
 }

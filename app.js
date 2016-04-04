@@ -4,6 +4,8 @@ require("./styles/master.scss");
 
 var angular = require('angular');
 require('angular-ui-router');
+
+
 require("./directives/soloDirectives.module.js");
 require("./services/soloServices.module.js");
 
