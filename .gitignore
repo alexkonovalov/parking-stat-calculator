@@ -89,6 +89,8 @@ node_modules
 ### Covers Dist Folder Contents
 dist
 
+bundle.js
+
 ### Covers Demo Loaded Folders Contents
 demo/lib
 
