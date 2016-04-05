@@ -2,12 +2,6 @@
 
 function intervalStatService(_) {
 
-/*
-    var idsInitial = [
-        {start: '00:11', end: '11:11'},
-        {start: '02:11', end: '04:11'},
-        {start: '12:11', end: '15:11'}
-    ]*/
 
     this.getStatics = function(idsInitial){
 

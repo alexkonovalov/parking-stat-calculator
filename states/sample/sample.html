@@ -1,15 +1,11 @@
 ﻿<div>
-    <span>
-        info from controller:
-    </span>
-    <!--{{sampleInfo}}-->
 
+<div class="uploadButtonContainer">
     <div file-uploader file-uploader-output="uploadOutput" file-uploader-on-load="onFileUpload(text)" >
     </div>
+</div>
 
-    <div line-chart line-chart-x-coords="xCoords" line-chart-y-coords="yCoords" >
-    </div>
-
-   <!-- {{uploadOutput}}-->
+<div ng-show="infoUploaded" line-chart line-chart-x-coords="xCoords" line-chart-y-coords="yCoords" >
+</div>
 
 </div>

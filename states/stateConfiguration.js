@@ -1,7 +1,7 @@
 ﻿'use strict';
 var ngModule = angular.module('registrationApp');
 
-
+require('./sample/sample.scss');
 
 require('./sample/sample.controller.js')(ngModule);
 

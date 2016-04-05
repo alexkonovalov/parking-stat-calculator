@@ -1,14 +1,12 @@
 ﻿
 @import 'mixins';
 
+
 $pageBackgroundColor: #000000;
 $pageBackgroundImage: '../images/parking-lot-wallpapers-3.jpg';
 
-$formOuterMaxWidth: 800px;
-$formInnerMaxWidth: 800px;
-
-$formOuterMinWidth: 600px;
-$formInnerMinWidth: 600px;
+$formInnerMaxWidth: 700px;
+$formInnerMinWidth: 400px;
 
 /*where to put it. probably in an input module or with buttons
 
