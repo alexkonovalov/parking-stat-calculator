@@ -5,9 +5,14 @@ require('./sample/sample.scss');
 
 require('./sample/sample.controller.js')(ngModule);
 
-function StateConfiguration($stateProvider,  $urlRouterProvider, dateParserServiceProvider) {
+function StateConfiguration($stateProvider,  $urlRouterProvider, frameParserServiceProvider) {
 
-    dateParserServiceProvider.setSeparators('\n', ', ');
+    frameParserServiceProvider.setConfiguration(
+        {
+            lineSepartor: '\n',
+            endsSeparator: ', ',
+            format: 'hh:mm'
+        });
 
     $urlRouterProvider.otherwise('/sample');
 

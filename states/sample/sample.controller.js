@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-function SampleController($scope, _, moment, dateParserService, intervalStatService) {
+function SampleController($scope, _, moment, frameParserService, intervalStatService) {
 
     $scope.xCoords =[];
     $scope.yCoords =[];
@@ -9,7 +9,7 @@ function SampleController($scope, _, moment, dateParserService, intervalStatServ
 
     $scope.onFileUpload = function(text){
 
-        var intervals =  dateParserService.parseIntervals(text);
+        var intervals =  frameParserService.parseIntervals(text);
         var sampleInfo = intervalStatService.getStatics(intervals);
 
         var intervalStarts = [];
