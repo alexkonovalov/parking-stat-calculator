@@ -5,34 +5,48 @@ function splitString(stringToSplit, separator) {
     return arrayOfStrings;
 }
 
-
-function dateParserService() {
+var dateParserServiceProvider = function () {
 
     var intervalSeparator = '\n';
-    var startEndSeparator = ', ';
+    var startEndSeparator = ' ';
 
-    this.parseIntervals = function(text){
+    return {
+        setSeparators: function (intervalSeparator, startEndSeparator) {
+            intervalSeparator = intervalSeparator;
+            startEndSeparator = startEndSeparator;
+        },
+        $get: function(moment) {
 
-        var intervalStrings = splitString(text, intervalSeparator);
+            return {
+                parseIntervals: function (text) {
 
-        var intervals = [];
+                    var intervalStrings = splitString(text, intervalSeparator);
 
-        for(var i = 0; i < intervalStrings.length; i++){
-            var start = splitString(intervalStrings[i], startEndSeparator)[0];
-            var end = splitString(intervalStrings[i], startEndSeparator)[1];
+                    var intervals = [];
 
-            intervals.push({
-                start: start,
-                end: end
-            })
+                    for (var i = 0; i < intervalStrings.length; i++) {
+                        var startStr = splitString(intervalStrings[i], startEndSeparator)[0];
+                        var endStr = splitString(intervalStrings[i], startEndSeparator)[1];
+
+                        var start = moment(startStr, 'hh:mm').toDate();
+                        var end = moment(endStr, 'hh:mm').toDate();
+
+                        intervals.push({
+                            start: start,
+                            end: end
+                        })
+                    }
+
+                    return intervals;
+                }
+            };
         }
-
-        return intervals;
-
     }
-
 };
 
 module.exports = function(ngModule) {
-    ngModule.service('dateParserService', dateParserService);
+    ngModule.provider('dateParserService', dateParserServiceProvider);
 }
+
+
+

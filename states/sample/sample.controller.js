@@ -17,7 +17,7 @@ function SampleController($scope, _, moment, dateParserService, intervalStatServ
 
         _.each(sampleInfo, function(interval) {
 
-            var date = moment(interval.start, 'hh:mm').toDate();
+            var date =/* moment(*/interval.start/*, 'hh:mm').toDate();*/
 
             intervalStarts.push(date);
             intervalQuantities.push(interval.q);

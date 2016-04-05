@@ -9,3 +9,5 @@ function momentService() {
 module.exports = function(ngModule) {
     ngModule.factory('moment', momentService);
 }
+
+

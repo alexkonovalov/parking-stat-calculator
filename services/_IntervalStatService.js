@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-function intervalStatService(_) {
+function intervalStatService(_, moment) {
 
 
     this.getStatics = function(idsInitial){
@@ -20,12 +20,15 @@ function intervalStatService(_) {
         var allFrames = []
         console.log(ids);
 
-        allFrames.push({start: '00:00', end: ids[0], q: 0});
+        var start = '00:00';
+        var end = '23:59';
+
+        allFrames.push({start: start, end: ids[0], q: 0});
 
         for(var i = 0; i < ids.length; i++){
 
             if(i == ids.length - 1){
-                allFrames.push({start: ids[i], end: '23:59', q: 0});
+                allFrames.push({start: ids[i], end: end, q: 0});
                 continue;
             }
 
