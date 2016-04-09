@@ -10,7 +10,7 @@ function SampleController($scope, _, moment, frameParserService, intervalStatSer
     $scope.onFileUpload = function(text){
 
         var intervals =  frameParserService.parseIntervals(text);
-        var sampleInfo = intervalStatService.getStatics(intervals);
+        var sampleInfo = intervalStatService.getStatistics(intervals);
 
         var intervalStarts = [];
         var intervalQuantities = [];

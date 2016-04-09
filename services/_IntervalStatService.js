@@ -2,48 +2,77 @@
 
 function intervalStatService(_, moment) {
 
+    function getBounds(frames) {
+        return _.chain(frames)
+            .reduce(
+                function (arr, el, index) {
 
-    this.getStatics = function(idsInitial){
+                    arr.push(el.start);
+                    arr.push(el.end)
 
-        var ids = _.reduce(idsInitial
-            , function (arr, el, index) {
+                    return arr
 
-                arr.push(el.start);
-                arr.push(el.end)
+                }, [])
+            .sortBy(function (el) {
+                return el;
+            }).value();
+    }
 
-                return arr
+    function getFramesForAccumulation(bounds) {
+        var framesForAccumulation = []
 
-            }, []);
+        var firstBound = bounds[0];
 
-        ids = _.sortBy(ids, function(el){ return el; });
+        if (!(firstBound.getHours() === 0 && firstBound.getMinutes() === 0)) {
 
-        var allFrames = []
-        console.log(ids);
-
-        var start = '00:00';
-        var end = '23:59';
-
-        allFrames.push({start: start, end: ids[0], q: 0});
-
-        for(var i = 0; i < ids.length; i++){
-
-            if(i == ids.length - 1){
-                allFrames.push({start: ids[i], end: end, q: 0});
-                continue;
-            }
-
-            allFrames.push({start: ids[i], end: ids[i+1], q: 0});
+            framesForAccumulation.push({
+                start: moment('00:00', 'hh:mm').toDate(),
+                end: bounds[0],
+                q: 0
+            });
 
         }
 
+        for (var i = 0; i < bounds.length - 1; i++) {
+            framesForAccumulation.push({start: bounds[i], end: bounds[i + 1], q: 0});
+        }
 
-        for(var i = 0; i < idsInitial.length; i++){
+        var lastBound = bounds[bounds.length - 1];
 
-            for(var j = 0; j < allFrames.length; j++){
+        if (!(lastBound.getHours() === 23 && lastBound.getMinutes() === 59)) {
 
-                if(idsInitial[i].start == allFrames[j].start){
-                    for(var u = j; idsInitial[i].end >= allFrames[u].end; u++){
-                        allFrames[u].q++;
+            framesForAccumulation.push({
+                start: lastBound,
+                end: moment('23:59', 'hh:mm').toDate(),
+                q: 0
+            });
+
+        }
+        return framesForAccumulation;
+    }
+
+    this.getStatistics = function(frames){
+
+        var bounds = getBounds(frames);
+        var accumulatedFrames = getFramesForAccumulation(bounds);
+
+        var sortedFrames = _.sortBy(frames, function (el) {
+            return el.start;
+        })
+
+
+        //for each frame
+        for(var i = 0, j = 0; i < sortedFrames.length; i++){
+
+            //walk over the array of frames for accumulation
+             for(; j < accumulatedFrames.length; j++){
+
+                //if we found frame with the same start
+                if(sortedFrames[i].start === accumulatedFrames[j].start){
+
+                    //walk further and increment them till we reach the end
+                    for(var u = j; sortedFrames[i].end >= accumulatedFrames[u].end; u++){
+                        accumulatedFrames[u].q++;
                     }
 
                     break;
@@ -52,7 +81,7 @@ function intervalStatService(_, moment) {
             }
         }
 
-        return allFrames;
+        return accumulatedFrames;
     }
 
 };
