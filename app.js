@@ -1,17 +1,21 @@
 ﻿'use strict';
-
 require("./styles/master.scss");
 
-var angular = require('angular');
-require('angular-ui-router');
+var appModule = require("./appModule.js");
+var stateConfig = require("./states/stateConfiguration.js");
 
+appModule.config(function AppConfiguration($stateProvider, $urlRouterProvider, frameParserServiceProvider) {
 
-require("./directives/soloDirectives.module.js");
-require("./services/soloServices.module.js");
+        frameParserServiceProvider.setConfiguration(
+            {
+                lineSepartor: '\n',
+                endsSeparator: ', ',
+                format: 'hh:mm'
+            });
 
-var app = angular.module('registrationApp', ['ui.router', 'solo.directives', 'solo.services']);
+        stateConfig($stateProvider, $urlRouterProvider);
 
-var solConf = require("./states/stateConfiguration.js");
-app.config(solConf)
+    }
+)
 
 module.exports = {};

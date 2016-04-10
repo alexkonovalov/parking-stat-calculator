@@ -1,29 +1,19 @@
 ﻿'use strict';
-var ngModule = angular.module('registrationApp');
+var appModule = require('../appModule.js');
 
-require('./sample/sample.scss');
+require('./graph/graph.style.scss');
+require('./graph/graph.controller.js')(appModule);
 
-require('./sample/sample.controller.js')(ngModule);
+function StateConfiguration($stateProvider, $urlRouterProvider){
 
-function StateConfiguration($stateProvider,  $urlRouterProvider, frameParserServiceProvider) {
+    $urlRouterProvider.otherwise('/graph');
 
-    frameParserServiceProvider.setConfiguration(
-        {
-            lineSepartor: '\n',
-            endsSeparator: ', ',
-            format: 'hh:mm'
-        });
-
-    $urlRouterProvider.otherwise('/sample');
-
-    $stateProvider
-       .state('sample', {
-           url: '/sample',
-           template: require('./sample/sample.html'),
-           controller: 'SampleController'
-        });
+    $stateProvider.state('graph', {
+        url: '/graph',
+        template: require('./graph/graph.template.html'),
+        controller: 'GraphController'
+    });
 
 }
-
 
 module.exports = StateConfiguration;

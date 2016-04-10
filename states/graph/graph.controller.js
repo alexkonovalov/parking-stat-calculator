@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-function SampleController($scope, _, moment, frameParserService, intervalStatService) {
+function GraphController($scope, _, frameParserService, intervalStatService) {
 
     $scope.xCoords =[];
     $scope.yCoords =[];
@@ -9,15 +9,21 @@ function SampleController($scope, _, moment, frameParserService, intervalStatSer
 
     $scope.onFileUpload = function(text){
 
-        var intervals =  frameParserService.parseIntervals(text);
-        var sampleInfo = intervalStatService.getStatistics(intervals);
+        try{
+            var intervals =  frameParserService.parseIntervals(text);
+            var sampleInfo = intervalStatService.getStatistics(intervals);
+        }
+        catch(error){
+            alert(error);
+            return;
+        }
 
         var intervalStarts = [];
         var intervalQuantities = [];
 
         _.each(sampleInfo, function(interval) {
 
-            var date =/* moment(*/interval.start/*, 'hh:mm').toDate();*/
+            var date = interval.start;
 
             intervalStarts.push(date);
             intervalQuantities.push(interval.q);
@@ -30,7 +36,6 @@ function SampleController($scope, _, moment, frameParserService, intervalStatSer
 
     };
 
-  //  $scope.sampleInfo = [];
 
     $scope.uploadOutput = "";
 
@@ -39,5 +44,7 @@ function SampleController($scope, _, moment, frameParserService, intervalStatSer
 
 
 module.exports = function(ngModule) {
-    ngModule.controller('SampleController', SampleController);
+
+    ngModule.controller('GraphController', GraphController);
+
 }
