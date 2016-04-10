@@ -12,7 +12,7 @@ module.exports = function(isMinify) {
             loaders: [
                 {
                     test: /\.scss$/,
-                    loaders: ["style", "css", "resolve-url",/**/ "sass?sourceMap"]
+                    loaders: ["style", "css", "resolve-url", "sass?sourceMap"]
                 },
                 { test: /\.js$/, loaders: ['ng-annotate'] },
                 { test: /\.html$/, loader: 'raw' },

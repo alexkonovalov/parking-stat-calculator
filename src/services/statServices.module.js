@@ -8,6 +8,6 @@ var ngModule = angular.module(moduleName, []);
 require('./_underscoreService.js')(ngModule);
 require('./_momentService.js')(ngModule);
 require('./_frameParserService.js')(ngModule);
-require('./_intervalStatService.js')(ngModule);
+require('./_IntervalStatService.js')(ngModule);
 
 module.exports = moduleName;

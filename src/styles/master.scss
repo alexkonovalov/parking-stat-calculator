@@ -8,14 +8,10 @@ $pageBackgroundImage: '../images/parking-lot-wallpapers-3.jpg';
 $formInnerMaxWidth: 700px;
 $formInnerMinWidth: 400px;
 
-/*where to put it. probably in an input module or with buttons
-
-*/
 textarea:focus, input:focus, button:focus{
     outline: none;
 }
 
- 
 
 div.toast-message {
     font-family: 'Open Sans', sans-serif;
@@ -26,10 +22,6 @@ html {
     background: url($pageBackgroundImage) no-repeat center top fixed;
     background-color: $pageBackgroundColor;
 }
-
-
-
-
 
 .stat-view {
     width: 100%;

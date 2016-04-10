@@ -29,7 +29,7 @@
   },
   "dependencies": {},
   "scripts": {
-    "build": "gulp build --destination=../for_buils/",
+    "build": "gulp build --destination=dev",
     "clean": "gulp cleandir",
     "copy": "gulp copydir",
     "webpack": "webpack"
