@@ -2,13 +2,15 @@
 
 var Plotly = require('plotly.js/dist/plotly.js');
 
-function lineChart(_) {
+function lineChart(_, $window) {
     return {
         restrict: 'A',
         replace: false,
         scope: {
             xAxis: '=lineChartXCoords',
-            yAxis: '=lineChartYCoords'
+            yAxis: '=lineChartYCoords',
+            widthPercent: '=lineChartWidthPercent',
+            heightPercent: '=lineChartHeightPercent',
         },
         template: require('./line-chart.template.html'),
         link:  function (scope, element) {
@@ -23,6 +25,26 @@ function lineChart(_) {
 
             function drawChart(xAxis, yAxis){
 
+                if(!xAxis || !xAxis.length || !yAxis ||!yAxis.length)
+                    return;
+
+
+                var d3 = Plotly.d3;
+
+                d3.select(element[0]).selectAll("*").remove();
+
+                var gd3 = d3.select(element[0])
+                    .append('div')
+                    .style({
+                        width: scope.widthPercent + '%',
+                        'margin-left': (100 - scope.widthPercent) / 2 + '%',
+
+                        height: scope.heightPercent + 'vh',
+                        'margin-top': (100 - scope.heightPercent) / 2 + 'vh'
+                    });
+
+                var gd = gd3.node();
+
                 var trace = {
                     x: xAxis,
                     y: yAxis,
@@ -31,12 +53,10 @@ function lineChart(_) {
                     type: 'scatter'
                 };
 
-
                 var data = [trace];
 
-                var layout = {
+                Plotly.newPlot(gd, data, {
                     title:"Parking Statistics Of the Day",
-                    autosize:false,
                     yaxis:{
                         zeroline:false,
                         showline:true,
@@ -69,22 +89,23 @@ function lineChart(_) {
                     font:{
                         color:"rgb(204, 204, 204)"
                     },
-                    plot_bgcolor:"rgba(1, 1, 1, 0)",/**/
+                    plot_bgcolor:"rgba(1, 1, 1, 0)",
                     titlefont:{
                         color:"rgb(217, 217, 217)"
                     },
+                });
 
+                Plotly.Plots.resize(gd);
 
-                };
-
-                Plotly.newPlot('myDiv', data, layout);
+                $window.onresize = function () {
+                        Plotly.Plots.resize(gd);
+                    };
             }
-
-
         }
     };
 
 };
+
 
 module.exports = function(ngModule) {
     ngModule.directive('lineChart', lineChart);
