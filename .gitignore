@@ -87,10 +87,11 @@ node_modules
 
 
 ### Covers Dist Folder Contents
-dist
+.publish
 
 ### dev build directory
 dev
+
 
 ### Covers Demo Loaded Folders Contents
 demo/lib
