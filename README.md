@@ -2,7 +2,7 @@
 ##[Demo](http://alexkonovalov.github.io/parking-stat-calculator/)
 
 ##How to use
-Upload a text file a text file where each car’s arrival
+Upload a text file where each car’s arrival
 and departure times are separated with a comma, like so:
 
 11:15, 14:20
