@@ -1,4 +1,4 @@
-﻿'use strict';
+﻿"use strict";
 
 function intervalStatService(_, moment) {
 
@@ -26,7 +26,7 @@ function intervalStatService(_, moment) {
         if (!(firstBound.getHours() === 0 && firstBound.getMinutes() === 0)) {
 
             framesForAccumulation.push({
-                start: moment('00:00', 'hh:mm').toDate(),
+                start: moment("00:00", "hh:mm").toDate(),
                 end: bounds[0],
                 q: 0
             });
@@ -43,7 +43,7 @@ function intervalStatService(_, moment) {
 
             framesForAccumulation.push({
                 start: lastBound,
-                end: moment('23:59', 'hh:mm').toDate(),
+                end: moment("23:59", "hh:mm").toDate(),
                 q: 0
             });
 
@@ -87,5 +87,5 @@ function intervalStatService(_, moment) {
 };
 
 module.exports = function(ngModule) {
-    ngModule.service('intervalStatService', intervalStatService);
+    ngModule.service("intervalStatService", intervalStatService);
 }

@@ -1,18 +1,18 @@
-﻿'use strict';
+﻿"use strict";
 
-var Plotly = require('plotly.js/dist/plotly.js');
+var Plotly = require("plotly.js/dist/plotly.js");
 
 function lineChart(_, $window) {
     return {
-        restrict: 'A',
+        restrict: "A",
         replace: false,
         scope: {
-            xAxis: '=lineChartXCoords',
-            yAxis: '=lineChartYCoords',
-            widthPercent: '=lineChartWidthPercent',
-            heightPercent: '=lineChartHeightPercent',
+            xAxis: "=lineChartXCoords",
+            yAxis: "=lineChartYCoords",
+            widthPercent: "=lineChartWidthPercent",
+            heightPercent: "=lineChartHeightPercent",
         },
-        template: require('./line-chart.template.html'),
+        template: require("./line-chart.template.html"),
         link:  function (scope, element) {
 
             scope.$watch(function(scope) { return scope.xAxis; }, function(newVal){
@@ -31,16 +31,16 @@ function lineChart(_, $window) {
 
                 var d3 = Plotly.d3;
 
-                d3.select(element[0]).selectAll("*").remove();
+                d3.select(element.children()[0]).selectAll("*").remove();
 
-                var gd3 = d3.select(element[0])
-                    .append('div')
+                var gd3 = d3.select(element.children()[0])
+                    .append("div")
                     .style({
-                        width: scope.widthPercent + '%',
-                        'margin-left': (100 - scope.widthPercent) / 2 + '%',
+                        width: scope.widthPercent + "%",
+                        'margin-left': (100 - scope.widthPercent) / 2 + "%",
 
-                        height: scope.heightPercent + 'vh',
-                        'margin-top': (100 - scope.heightPercent) / 2 + 'vh'
+                        height: scope.heightPercent + "vh",
+                        'margin-bottom': (100 - scope.heightPercent) / 2 + "vh"
                     });
 
                 var gd = gd3.node();
@@ -48,9 +48,9 @@ function lineChart(_, $window) {
                 var trace = {
                     x: xAxis,
                     y: yAxis,
-                    mode: 'lines+markers',
-                    line: {shape: 'hv'},
-                    type: 'scatter'
+                    mode: "lines+markers",
+                    line: {shape: "hv"},
+                    type: "scatter"
                 };
 
                 var data = [trace];
@@ -98,8 +98,9 @@ function lineChart(_, $window) {
                 Plotly.Plots.resize(gd);
 
                 $window.onresize = function () {
-                        Plotly.Plots.resize(gd);
-                    };
+                    Plotly.Plots.resize(gd);
+                };
+
             }
         }
     };
@@ -108,5 +109,5 @@ function lineChart(_, $window) {
 
 
 module.exports = function(ngModule) {
-    ngModule.directive('lineChart', lineChart);
+    ngModule.directive("lineChart", lineChart);
 }

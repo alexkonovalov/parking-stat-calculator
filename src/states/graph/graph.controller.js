@@ -1,4 +1,4 @@
-﻿'use strict';
+﻿"use strict";
 
 function GraphController($scope, _, frameParserService, intervalStatService) {
 
@@ -45,6 +45,6 @@ function GraphController($scope, _, frameParserService, intervalStatService) {
 
 module.exports = function(ngModule) {
 
-    ngModule.controller('GraphController', GraphController);
+    ngModule.controller("GraphController", GraphController);
 
 }

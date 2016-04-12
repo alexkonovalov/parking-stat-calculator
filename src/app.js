@@ -8,9 +8,9 @@ appModule.config(function AppConfiguration($stateProvider, $urlRouterProvider, f
 
         frameParserServiceProvider.setConfiguration(
             {
-                lineSepartor: '\n',
-                endsSeparator: ', ',
-                format: 'hh:mm'
+                lineSepartor: "\n",
+                endsSeparator: ", ",
+                format: "hh:mm"
             });
 
         stateConfig($stateProvider, $urlRouterProvider);

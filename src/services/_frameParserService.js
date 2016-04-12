@@ -1,4 +1,4 @@
-﻿'use strict';
+﻿"use strict";
 
 function splitString(stringToSplit, separator) {
     var arrayOfStrings = stringToSplit.split(separator);
@@ -57,7 +57,7 @@ function frameParserServiceFactory(moment, _) {
 };
 
 module.exports = function(ngModule) {
-    ngModule.provider('frameParserService', function () {
+    ngModule.provider("frameParserService", function () {
 
             return {
                 setConfiguration: function (serviceConfig) {

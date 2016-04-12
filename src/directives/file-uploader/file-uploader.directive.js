@@ -1,15 +1,15 @@
-﻿'use strict';
-require('./file-uploader.style.scss');
+﻿"use strict";
+require("./file-uploader.style.scss");
 
 function fileUploader($window) {
     return {
-        restrict: 'A',
+        restrict: "A",
         replace: false,
         scope: {
-            output: '=fileUploaderOutput',
-            onLoad: '&fileUploaderOnLoad'
+            output: "=fileUploaderOutput",
+            onLoad: "&fileUploaderOnLoad"
         },
-        template: require('./file-uploader.template.html'),
+        template: require("./file-uploader.template.html"),
         link:  function (scope, element) {
 
             scope.output = [];
@@ -31,7 +31,7 @@ function fileUploader($window) {
                     var file = files[i];
 
                     //Only plain text
-                    if (!file.type.match('plain')) continue;
+                    if (!file.type.match("plain")) continue;
 
                     var picReader = new FileReader();
 
@@ -58,5 +58,5 @@ function fileUploader($window) {
 };
 
 module.exports = function(ngModule) {
-    ngModule.directive('fileUploader', fileUploader);
+    ngModule.directive("fileUploader", fileUploader);
 }

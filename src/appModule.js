@@ -2,10 +2,10 @@
 
 var appName = "parkingsStatApp";
 
-var app = require('angular')
+var app = require("angular")
     .module(appName,
         [
-            require('angular-ui-router'),
+            require("angular-ui-router"),
             require("./directives/statDirectives.module.js"),
             require("./services/statServices.module.js")
         ]);
