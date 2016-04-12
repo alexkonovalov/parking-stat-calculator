@@ -1,7 +1,7 @@
 {
   "version": "0.0.0",
   "private": true,
-  "name": "solo",
+  "name": "parking-stat-calculator",
   "devDependencies": {
     "angular": "^1.5.0",
     "angular-ui-router": "^0.2.18",
@@ -35,7 +35,7 @@
     "deploy": "gulp deploy --source=dist "
   },
   "main": "gulpfile.js",
-  "author": "",
+  "author": "alex konovalov",
   "license": "ISC",
   "description": ""
 }
