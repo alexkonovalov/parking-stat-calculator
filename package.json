@@ -31,9 +31,8 @@
   "dependencies": {},
   "scripts": {
     "build": "gulp build --destination=dev",
-    "clean": "gulp cleandir",
-    "copy": "gulp copydir",
-    "webpack": "webpack"
+    "build-prod": "gulp build --destination=dist --minify",
+    "deploy": "gulp deploy --source=dist "
   },
   "main": "gulpfile.js",
   "author": "",

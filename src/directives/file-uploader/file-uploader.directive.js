@@ -31,7 +31,10 @@ function fileUploader($window) {
                     var file = files[i];
 
                     //Only plain text
-                    if (!file.type.match("plain")) continue;
+                    if (!file.type.match("plain")){
+                        alert("Invalid file type");
+                        continue;
+                    }
 
                     var picReader = new FileReader();
 

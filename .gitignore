@@ -86,11 +86,15 @@ node_modules
 .node_repl_history
 
 
-### Covers Dist Folder Contents
+### Covers Publish Folder Contents
 .publish
 
 ### dev build directory
 dev
+
+### dist build directory
+dist
+
 
 
 ### Covers Demo Loaded Folders Contents

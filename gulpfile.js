@@ -52,7 +52,8 @@ gulp.task('build', ['defineStrategy', 'cleanDest','copyFilesToDest' ], function 
 });
 
 gulp.task('deploy', function() {
-    return gulp.src('./dev/**/*')
+    var source = argv.source;
+    return gulp.src('./' + source + '/**/*')
         .pipe(ghPages());
 });
 
