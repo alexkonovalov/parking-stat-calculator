@@ -1,5 +1,5 @@
 # parking-stat-calculator
-[Demo](http://alexkonovalov.github.io/parking-stat-calculator/)
+##[Demo](http://alexkonovalov.github.io/parking-stat-calculator/)
 
 ###To load all dependencies
 
