@@ -58,6 +58,7 @@ function lineChart(_, $window) {
                 Plotly.newPlot(gd, data, {
                     title:"Parking Statistics Of the Day",
                     yaxis:{
+                        autorange:true,
                         zeroline:false,
                         showline:true,
                         range:[
@@ -65,7 +66,6 @@ function lineChart(_, $window) {
                         ],
                         showgrid:false,
                         gridcolor:"rgb(204, 204, 204)"
-
                     },
                     xaxis:{
                         zeroline:false,

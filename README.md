@@ -6,7 +6,9 @@ Upload a text file a text file where each car’s arrival
 and departure times are separated with a comma, like so:
 
 11:15, 14:20
+
 12:10, 18:00
+
 14:00, 20:04
 
 
